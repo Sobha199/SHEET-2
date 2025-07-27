@@ -17,7 +17,7 @@ form_headers = [
 # Load login credentials and logo
 login_df = pd.read_csv("login coder.csv")
 logo = Image.open("s2m-logo.png")
-gc = gspread.service_account(filename="secrets.toml")
+gc = gspread.service_account_from_dict(st.secrets["gspread"])
 sh = gc.open_by_url("https://docs.google.com/spreadsheets/d/1265kUfjiWYuh5fsSwbU5HdA7soyn6qcfRc-4xAozbjk/edit?usp=sharing")
 worksheet = sh.sheet1
 # Setup session logs path
